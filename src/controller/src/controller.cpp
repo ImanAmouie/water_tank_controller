@@ -23,7 +23,7 @@ public:
 private:
     void timer_callback()
     {
-        tank_input_.inlet_valve = 30.0; // sample output 
+        tank_input_.inlet_valve = 85.0; // sample output 
         publisher_->publish(tank_input_);
     }
     rclcpp::TimerBase::SharedPtr timer_;

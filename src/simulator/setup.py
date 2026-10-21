@@ -24,6 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            
+            "tank_sim = simulator.tank_sim_app:main"
         ],
     },
 )
