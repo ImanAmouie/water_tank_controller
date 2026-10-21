@@ -38,7 +38,7 @@ private:
 
     void tank_output_callback(const TankOutput::SharedPtr msg) const
     {
-        RCLCPP_INFO(get_logger(), "level -> %f", msg->water_level);
+        RCLCPP_INFO(get_logger(), "level -> %f", msg->level);
     }
 
     rclcpp::TimerBase::SharedPtr timer_;
