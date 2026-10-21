@@ -7,17 +7,3 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(rclcpp REQUIRED)
-find_package(water_tank_interface REQUIRED)
-
-
-add_executable(controller
-  src/controller.cpp)
-ament_target_dependencies(controller
-    rclcpp
-    water_tank_interface)
-
-install(TARGETS
-  controller
-  DESTINATION lib/${PROJECT_NAME})
-ament_package()
