@@ -9,13 +9,14 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 import rclpy
 from simulator.tank_node import TankNode
+from water_tank_interface.msg import TankOutput
 
 
 # ── Simulation constants ─────────────────────────────────────────────────────
 TANK_AREA = 0.50
 MAX_LEVEL = 5.0
-MAX_FLOW_IN = 0.15
-VALVE_TAU = 2.0
+MAX_FLOW_IN = 0.45
+VALVE_TAU = .1
 SENSOR_NOISE = 0.02
 DT = 0.1
 HISTORY_LEN = 300
@@ -286,7 +287,8 @@ class TankSimulationApp(tk.Tk):
         self.node.publish_level(measured_level)      # -> /tank_level
 
         # Command from the C++ controller goes straight to the valve.
-        self.valve.set_demand(self.node.get_cmd())   # clips to 0-100
+        # self.valve.set_demand(self.node.get_cmd())   # clips to 0-100
+        self.valve.set_demand(100)   # clips to 0-100
         self.valve.update(DT)
         self.tank.drain_coeff = self.var_drain.get()
         self.tank.update(self.valve.flow, DT, disturbance=self.var_dist.get())
