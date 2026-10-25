@@ -287,8 +287,7 @@ class TankSimulationApp(tk.Tk):
         self.node.publish_level(measured_level)      # -> /tank_level
 
         # Command from the C++ controller goes straight to the valve.
-        # self.valve.set_demand(self.node.get_cmd())   # clips to 0-100
-        self.valve.set_demand(100)   # clips to 0-100
+        self.valve.set_demand(self.node.get_cmd())   # clips to 0-100
         self.valve.update(DT)
         self.tank.drain_coeff = self.var_drain.get()
         self.tank.update(self.valve.flow, DT, disturbance=self.var_dist.get())
