@@ -5,10 +5,10 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/opt/ros/humble/include/**",
-                "~/coding/water_tank/install/water_tank_interface/include/**" // change this path with your project path 
+                "${workspaceFolder}/install/water_tank_interface/include/**"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "linux-gcc-x64"
